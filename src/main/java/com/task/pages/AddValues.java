@@ -44,7 +44,7 @@ public class AddValues {
 		   value3.sendKeys(val3);
 		   value4.sendKeys(val4);
 		   value5.sendKeys(val5);
-		   driver.findElement(By.xpath("/html/body/input[6]")).click();
+		   
 	   }
 	
 	public String getSumOfValuesDisplayed()
