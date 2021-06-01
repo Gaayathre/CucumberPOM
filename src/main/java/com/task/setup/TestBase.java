@@ -10,11 +10,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TestBase {
-	public  static WebDriver driver;
+	public static  WebDriver driver;
+	
+	//creating the instance of Properties  to fetch values of Properties file
 	public static Properties properties;
+	
 	
 	public 	TestBase()
 	{
+		/*
+		 Setting the path for input stream
+		 using catch block to handle exception if file not found
+		 */
+
 		try
 		{
 			properties=new Properties();
@@ -27,21 +35,33 @@ public class TestBase {
 		}
 	}
 	
+	//to initialize WebDriver instance
+	
 	public static void initialize()
 	{
+		//retrieving browser value from properties file
 		String browser=properties.getProperty("browser");
 		
 		switch(browser)
 		{
 		    case "firefox":
+		    	/*
+		    	 setting path to Firefox driver 
+		    	 */
 			    System.setProperty("webdriver.gecko.driver", "C:\\Selenium jar\\WebDriver\\geckodriver.exe");
 			    driver=new ChromeDriver();
 			    break;
 		    case "ie":
+		    	/*
+		    	 setting path to ie driver
+		    	 */
 			    System.setProperty("webdriver.ie.driver", "C:\\Selenium jar\\WebDriver\\chromedriver.exe");
 			    driver=new ChromeDriver();
 			    break;
 		    default:
+		    	/*
+		    	 setting path to chrome driver
+		    	 */
 			    System.setProperty("webdriver.chrome.driver", "C:\\Selenium jar\\WebDriver\\chromedriver.exe");
 			    driver=new ChromeDriver();
 			    break;
@@ -51,8 +71,8 @@ public class TestBase {
 		driver.get(properties.getProperty("url"));
 		
 	}
-
-	public WebDriver getDriver()
+     
+	public static WebDriver getDriver()
 	{
 		return driver;
 	}
