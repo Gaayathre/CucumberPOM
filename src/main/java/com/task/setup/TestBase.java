@@ -49,14 +49,14 @@ public class TestBase {
 		    	 setting path to Firefox driver 
 		    	 */
 			    System.setProperty("webdriver.gecko.driver", "C:\\Selenium jar\\WebDriver\\geckodriver.exe");
-			    driver=new ChromeDriver();
+			    driver=new FirefoxDriver();
 			    break;
 		    case "ie":
 		    	/*
 		    	 setting path to ie driver
 		    	 */
-			    System.setProperty("webdriver.ie.driver", "C:\\Selenium jar\\WebDriver\\chromedriver.exe");
-			    driver=new ChromeDriver();
+			    System.setProperty("webdriver.ie.driver", "C:\\Selenium jar\\WebDriver\\IEDriverServer.exe");
+			    driver=new InternetExplorerDriver();
 			    break;
 		    default:
 		    	/*
